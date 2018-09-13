@@ -1,25 +1,28 @@
+//
+//
+// var imageClicker = document.querySelector('#cat-img');
+// var addClicksText =   document.querySelector('#cat-clicks');
+//  var addClicks= 0;
+//
+//    imageClicker.addEventListener('click', function(){
+//      addClicks ++;
+//       addClicksText.textContent = addClicks;
+//      console.log('click');
+//  });
+//
+/
+
+//  var imageClicker2 = document.querySelector('.catpic2');
+//  var addClicksText2 =   document.querySelector('.clicks2');
+//   var addClicks2= 0;
+//
+//     imageClicker2.addEventListener('click', function(){
+//       addClicks2 ++;
+//        addClicksText2.textContent = addClicks2;
+//        console.log('click2');
+//   });
 
 
-var imageClicker = document.querySelector('.catpic');
-var addClicksText =   document.querySelector('.clicks');
- var addClicks= 0;
-
-   imageClicker.addEventListener('click', function(){
-     addClicks ++;
-      addClicksText.textContent = addClicks;
-     console.log('click');
- });
-
-
- var imageClicker2 = document.querySelector('.catpic2');
- var addClicksText2 =   document.querySelector('.clicks2');
-  var addClicks2= 0;
-
-    imageClicker2.addEventListener('click', function(){
-      addClicks2 ++;
-       addClicksText2.textContent = addClicks2;
-       console.log('click2');
-  });
 
 
  // //first class
