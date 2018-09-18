@@ -1,71 +1,73 @@
-//
-//
-// var imageClicker = document.querySelector('#cat-img');
-// var addClicksText =   document.querySelector('#cat-clicks');
-//  var addClicks= 0;
-//
-//    imageClicker.addEventListener('click', function(){
-//      addClicks ++;
-//       addClicksText.textContent = addClicks;
-//      console.log('click');
-//  });
-//
-/
+//model
 
-//  var imageClicker2 = document.querySelector('.catpic2');
-//  var addClicksText2 =   document.querySelector('.clicks2');
-//   var addClicks2= 0;
-//
-//     imageClicker2.addEventListener('click', function(){
-//       addClicks2 ++;
-//        addClicksText2.textContent = addClicks2;
-//        console.log('click2');
-//   });
+var model = {
+  currentCat: null,
+  cats: [
+    {
+      clickCount: 3,
+      name: 'Fluffy',
+      imgSrc: 'images/fluffy.jpg'
+    },
+    {
+      clickCount: 0,
+      name: 'Kitty',
+      imgSrc: 'images/kitty.png'
+    },
+    {
+      clickCount: 0,
+      name: 'Mittens',
+      imgSrc: 'images/mittens.jpg'
+    },
+    {
+      clickCount: 0,
+      name: 'Tiger',
+      imgSrc: 'images/tiger.jpg'
+    },
+    {
+      clickCount: 0,
+      name: 'whiskers',
+      imgSrc: 'images/whiskers.jpg'
+    }
+  ]
+};
 
-
-
-
- // //first class
- // function Cat (name){
- //
- //   this.name = name;
- // };
-
-//prototype
-// Cat.prototype.increment = function(){
-//
-//   imageClicker.addEventListener('click', function(){
-//     addClicks ++;
-//      addClicksText.textContent = addClicks;
-//    console.log('click');
-// });
+//octopus
+var octopus = {
+// 
+// var getCurrentCat;
+// var currentCat;
+// var setCurrentCat;
+// incrementCounter = function(cat){
+//     console.log(clickCount ++);
+//   };
+//   init: function(){};
+//   render: function(){};
 // };
 
-// // first cat
-// const cat1 = new Cat('Wiskers');
-// // second cat
-// const cat2 = new Cat('Fluffy');
-//
-// //Clone
-//  var item = document.querySelector('#cat1');
-//  var cln = item.cloneNode(true);
-//  cln.id = 'cat2';
-// document.body.appendChild(cln);
-//
+//catView
+
+var catView = {
+
+var catArea = document.querySelector('#cat');
+var catName = document.querySelector('#cat-name');
+var catClicks = document.querySelector('#cat-clicks');
+var catImg= document.querySelector('#cat-img');
+
+catImg.addEventListener('click', incrementCounter);
+//set current cat img
+document.querySelector('#cat-img').src = model.cats[0].imgSrc;
 
 
-// var Cat = function(){
-//   var imageClicker = document.querySelector('img');
-//   var addClicksText =   document.querySelector('.clicks');
-//   addClicks= 0;
-//   imageClicker.addEventListener('click', function(){
-//     addClicks ++;
-//      addClicksText.textContent = addClicks;
-//    console.log('click');
-//   });
-// };
-//  Cat();
+init: function(){};
+render: function(){};
 
 
+};
 
-// cln.getElementsByClassName('catpic').src.replace("https://phz8.petinsurance.com/-/media/all-phz-images/2016-images-850/catonbed850.jpg",'https://images.pexels.com/photos/617278/pexels-photo-617278.jpeg?auto=compress&cs=tinysrgb&h=350');
+//catListView
+
+var catListView = {
+  init: function() {};
+  render: function(){};
+
+}
