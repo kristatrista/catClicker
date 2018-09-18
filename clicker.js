@@ -4,7 +4,7 @@ var model = {
   currentCat: null,
   cats: [
     {
-      clickCount: 3,
+      clickCount: 0,
       name: 'Fluffy',
       imgSrc: 'images/fluffy.jpg'
     },
@@ -42,12 +42,6 @@ var octopus = {
     catView.init();
     catListView.init();
   },
-  incrementCounter: function(){
-    return model.currentCat.clickCount ++;
-    console.log('click');
-    //render catview
-    catView.render();
-  },
   getCats: function(){
     return model.cats;
   },
@@ -55,7 +49,13 @@ var octopus = {
   return model.currentCat;
   },
   setCurrentCat: function(cat){
-  model.currentCat = cat
+  model.currentCat = cat;
+  },
+incrementCounter: function(){
+  model.currentCat.clickCount ++;
+  console.log('click');
+  //render catview
+  catView.render();
   }
 };
 //document.querySelector('#cat-img').src = model.cats[0].imgSrc;
@@ -107,9 +107,9 @@ var catListView = {
       // on click, setCurrentCat and render the catView
       // (this uses our closure-in-a-loop trick to connect the value
       //  of the cat variable to the click event function)
-      el.addEventListener('click', (function(catCopy) {
+      el.addEventListener('click', (function(cat) {
           return function() {
-              octopus.setCurrentCat(catCopy);
+              octopus.setCurrentCat(cat);
               catView.render();
           };
       })(cat));
