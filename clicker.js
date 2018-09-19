@@ -107,12 +107,20 @@ var catListView = {
       // on click, setCurrentCat and render the catView
       // (this uses our closure-in-a-loop trick to connect the value
       //  of the cat variable to the click event function)
-      el.addEventListener('click', (function(cat) {
-          return function() {
-              octopus.setCurrentCat(cat);
-              catView.render();
-          };
-      })(cat));
+      el.onclick = (function(catCopy){
+        return function() {
+            octopus.setCurrentCat(catCopy);
+            catView.render();
+        };
+      })(cat);
+
+      // el.addEventListener('click', (function(catCopy) {
+      //     return function() {
+      //         octopus.setCurrentCat(catCopy);
+      //         catView.render();
+      //     };
+      // })(cat));
+
 
       this.catListElem.appendChild(el);
       	// var ol = document.getElementById("cat-list");
