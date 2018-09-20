@@ -3,16 +3,7 @@
 var model = {
   currentCat: null,
   cats: [
-    {
-      clickCount: 0,
-      name: 'Fluffy',
-      imgSrc: 'images/fluffy.jpg'
-    },
-    {
-      clickCount: 0,
-      name: 'Kitty',
-      imgSrc: 'images/kitty.png'
-    },
+
     {
       clickCount: 0,
       name: 'Mittens',
@@ -27,6 +18,16 @@ var model = {
       clickCount: 0,
       name: 'Whiskers',
       imgSrc: 'images/whiskers.jpg'
+    },
+    {
+      clickCount: 0,
+      name: 'Fluffy',
+      imgSrc: 'images/fluffy.jpg'
+    },
+    {
+      clickCount: 0,
+      name: 'Kitty',
+      imgSrc: 'images/kitty.png'
     }
   ]
 
@@ -41,6 +42,7 @@ var octopus = {
     //initialize views
     catView.init();
     catListView.init();
+    adminView.init();
   },
   getCats: function(){
     return model.cats;
@@ -51,14 +53,21 @@ var octopus = {
   setCurrentCat: function(cat){
   model.currentCat = cat;
   },
-incrementCounter: function(){
+  incrementCounter: function(){
   model.currentCat.clickCount ++;
   console.log('click');
-  //render catview
   catView.render();
+},
+  saveButton: function(){
+    model.currentCat.name = adminView.adminName.value;
+    model.currentCat.clickCount = adminView.adminClicks.value;
+    model.currentCat.imgSrc = adminView.adminImg.value;
+
+    catView.render();
+    catListView.render();
   }
 };
-//document.querySelector('#cat-img').src = model.cats[0].imgSrc;
+
 //....catView..................................................................
 var catView = {
 init: function(){
@@ -69,6 +78,7 @@ init: function(){
 
   this.catImg.addEventListener('click', function(){
   octopus.incrementCounter();
+  adminView.render();
 });
   this.render();
 },
@@ -111,26 +121,49 @@ var catListView = {
         return function() {
             octopus.setCurrentCat(catCopy);
             catView.render();
+            adminView.render();
         };
       })(cat);
 
-      // el.addEventListener('click', (function(catCopy) {
-      //     return function() {
-      //         octopus.setCurrentCat(catCopy);
-      //         catView.render();
-      //     };
-      // })(cat));
-
-
       this.catListElem.appendChild(el);
-      	// var ol = document.getElementById("cat-list");
-        // var catName = document.getElementById("cat-name");
-        // li.setAttribute('id',catName.value);
-        // li.appendChild(document.createTextNode(catName.value));
-        // ol.appendChild(li);
-
     }
   }
+};
+//....admin view...........................................................
+adminView = {
+  init: function(){
+    var currentCat = octopus.getCurrentCat();
+    var formSec = document.querySelector('#formSection');
+    this.saveBtn = document.querySelector('#save-btn');
+    this.cancelBtn = document.querySelector('#cancel-btn');
+    this.adminBtn = document.querySelector('#admin-btn');
+
+    this.adminName = document.querySelector('#adminCatName');
+    this.adminClicks = document.querySelector('#adminCatClicks');
+    this.adminImg= document.querySelector('#adminCatImg');
+
+    //add event listeners to buttons
+    this.cancelBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      formSec.classList.toggle("hidden");
+  });
+  this.adminBtn.addEventListener('click', function(){
+    formSec.classList.toggle("hidden");
+  });
+  this.saveBtn.addEventListener('click', function(e){
+      e.preventDefault();
+      // console.log(this.adminName.value);
+      octopus.saveButton();
+      formSec.classList.toggle("hidden");
+});
+    this.render();
+  },
+  render: function(){
+     var currentCat = octopus.getCurrentCat(); //calls current cat
+     this.adminName.value = currentCat.name;
+     this.adminImg.value = currentCat.imgSrc;
+     this.adminClicks.value = currentCat.clickCount;
+ }
 };
 
 octopus.init();
