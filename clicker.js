@@ -3,7 +3,11 @@
 var model = {
   currentCat: null,
   cats: [
-
+    {
+      clickCount: 0,
+      name: 'Fluffy',
+      imgSrc: 'https://www.pinknews.co.uk/images/2018/02/pexels-photo_640x345_acf_cropped.jpg'
+    },
     {
       clickCount: 0,
       name: 'Mittens',
@@ -18,11 +22,6 @@ var model = {
       clickCount: 0,
       name: 'Whiskers',
       imgSrc: 'images/whiskers.jpg'
-    },
-    {
-      clickCount: 0,
-      name: 'Fluffy',
-      imgSrc: 'images/fluffy.jpg'
     },
     {
       clickCount: 0,
